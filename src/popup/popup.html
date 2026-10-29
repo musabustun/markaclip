@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <title>MarkaClip</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="brand">
+    <img class="brand__mark" src="../../assets/logo/markaclip-mark.svg" width="44" height="44" alt="">
+    <div>
+      <h1 class="brand__name"><span class="light">marka</span><span class="bold">clip</span></h1>
+      <p class="brand__by">by markavio · Where Brands Rise</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="how" aria-labelledby="how-title">
+      <h2 id="how-title" class="eyebrow">Nasıl kullanılır</h2>
+      <ol class="steps">
+        <li class="step step--primary">
+          <span class="step__tag">Reels</span>
+          <p>Sağdaki sütunda <strong>Kaydet</strong> ikonunun hemen altındaki indirme ikonuna tıkla.</p>
+        </li>
+        <li class="step">
+          <span class="step__tag">Gönderi</span>
+          <p>Kaydet ikonunun solunda. Albümde görünen kare iner, <kbd>Shift</kbd>&nbsp;+&nbsp;tık tümünü indirir.</p>
+        </li>
+        <li class="step">
+          <span class="step__tag">Hikâye</span>
+          <p>Üst çubukta oynat/duraklat düğmesinin yanında.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="settings" aria-labelledby="settings-title">
+      <h2 id="settings-title" class="eyebrow">Ayarlar</h2>
+      <label class="field">
+        <span class="field__label">İndirme klasörü</span>
+        <span class="field__input">
+          <span class="field__prefix">İndirilenler /</span>
+          <input id="folder" type="text" maxlength="60" spellcheck="false" autocomplete="off">
+        </span>
+      </label>
+      <label class="toggle">
+        <input id="saveAs" type="checkbox" role="switch">
+        <span class="toggle__track" aria-hidden="true"></span>
+        <span>Her indirmede konum sor</span>
+      </label>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a id="open-instagram" class="cta" href="https://www.instagram.com/reels/" target="_blank" rel="noopener">Reels'i aç</a>
+    <span id="version" class="version"></span>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

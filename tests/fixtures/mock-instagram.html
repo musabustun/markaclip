@@ -1,0 +1,59 @@
+<!doctype html><html><head><meta charset="utf-8"><title>mock</title>
+<link rel="stylesheet" href="../../src/content/content.css">
+<style>
+body{margin:0;font:14px -apple-system,system-ui;background:#fff;color:#000;display:flex;gap:48px;padding:24px}
+.reel{display:flex;align-items:flex-end;gap:16px}
+.video{width:300px;height:530px;border-radius:8px;background:linear-gradient(160deg,#333,#a77)}
+.col{display:flex;flex-direction:column;align-items:center;gap:6px;background:linear-gradient(#f0f0f0,#e6e6e6);padding:10px 0;border-radius:8px}
+.slot{display:flex;flex-direction:column;align-items:center;font-size:12px}
+.slot [role=button]{padding:8px;display:flex}
+.article{width:470px;border-bottom:1px solid #ddd}
+.media{height:300px;background:#cfd;border-radius:4px;position:relative}
+.dots{position:absolute;bottom:-18px;left:50%;transform:translateX(-50%);display:flex;gap:4px}
+.dots div{width:6px;height:6px;border-radius:50%;background:#a8a8a8}
+.dots div.on{background:#0095f6}
+.row{display:flex;justify-content:space-between;margin-top:24px}
+.row .left{display:flex}.row [role=button]{padding:8px;display:flex}
+</style></head><body>
+<section class="reel" id="reel">
+  <div class="video"><video></video><a href="/reels/audio/1234567/">ses</a><a href="/reel/DQwErTy1234/">reel</a></div>
+  <div class="col">
+    <div class="slot"><div role="button"><svg aria-label="Beğen" width="24" height="24" viewBox="0 0 24 24"><path d="M16.792 3.904A4.989 4.989 0 0 1 21.5 9.122c0 3.072-2.652 4.959-5.197 7.222-2.512 2.243-3.865 3.469-4.303 3.752-.477-.309-2.143-1.823-4.303-3.752C5.141 14.072 2.5 12.167 2.5 9.122a4.989 4.989 0 0 1 4.708-5.218 4.21 4.21 0 0 1 3.675 1.941c.84 1.175.98 1.763 1.12 1.763s.278-.588 1.11-1.766a4.17 4.17 0 0 1 3.679-1.938Z" fill="none" stroke="currentColor" stroke-width="2"/></svg></div><span>4.943</span></div>
+    <div class="slot"><div role="button"><svg aria-label="Yorum Yap" width="24" height="24" viewBox="0 0 24 24"><path d="M20.656 17.008a9.993 9.993 0 1 0-3.59 3.615L22 22Z" fill="none" stroke="currentColor" stroke-width="2"/></svg></div><span>48</span></div>
+    <div class="slot"><div role="button"><svg aria-label="Paylaş" width="24" height="24" viewBox="0 0 24 24"><path d="M22 3 9.218 10.083M11.698 20.334 22 3.001H2l7.218 7.083Z" fill="none" stroke="currentColor" stroke-width="2"/></svg></div></div>
+    <div class="slot"><div role="button"><svg aria-label="Kaydet" width="24" height="24" viewBox="0 0 24 24"><polygon fill="none" points="20 21 12 13.44 4 21 4 3 20 3 20 21" stroke="currentColor" stroke-linejoin="round" stroke-width="2"/></svg></div></div>
+    <div class="slot"><div role="button"><svg aria-label="Diğer" width="24" height="24" viewBox="0 0 24 24"><circle cx="6" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="18" cy="12" r="1.5"/></svg></div></div>
+  </div>
+</section>
+<article class="article" id="post">
+  <a href="/markavio/">markavio</a>
+  <div class="media"><div class="dots"><div></div><div class="on"></div><div></div></div></div>
+  <div class="row">
+    <div class="left">
+      <div role="button"><svg aria-label="Like" width="24" height="24" viewBox="0 0 24 24"><path d="M16.792 3.904A4.989 4.989 0 0 1 21.5 9.122c0 3.072-2.652 4.959-5.197 7.222-2.512 2.243-3.865 3.469-4.303 3.752-.477-.309-2.143-1.823-4.303-3.752C5.141 14.072 2.5 12.167 2.5 9.122a4.989 4.989 0 0 1 4.708-5.218 4.21 4.21 0 0 1 3.675 1.941c.84 1.175.98 1.763 1.12 1.763s.278-.588 1.11-1.766a4.17 4.17 0 0 1 3.679-1.938Z" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
+      <div role="button"><svg aria-label="Comment" width="24" height="24" viewBox="0 0 24 24"><path d="M20.656 17.008a9.993 9.993 0 1 0-3.59 3.615L22 22Z" fill="none" stroke="currentColor" stroke-width="2"/></svg></div>
+    </div>
+    <div class="right"><div><div role="button"><svg aria-label="Save" width="24" height="24" viewBox="0 0 24 24"><polygon fill="none" points="20 21 12 13.44 4 21 4 3 20 3 20 21" stroke="currentColor" stroke-linejoin="round" stroke-width="2"/></svg></div></div></div>
+  </div>
+  <a href="/p/DFeedCode12/">2 saat</a>
+</article>
+<script>
+window.__sent = [];
+window.__fetched = [];
+window.chrome = { runtime: { id: "mock", sendMessage: async (m) => { window.__sent.push(m); return { ok: true, count: m.files.length }; } } };
+const vid = (n) => ({ video_versions: [{ url: "https://scontent.cdninstagram.com/" + n + ".mp4", width: 1080, height: 1920 }] });
+const img = (n) => ({ image_versions2: { candidates: [{ url: "https://scontent.cdninstagram.com/" + n + ".jpg", width: 1080, height: 1350 }] } });
+window.fetch = async (url) => {
+  window.__fetched.push(url);
+  const isReel = url.includes(MarkaClip.api.shortcodeToMediaId("DQwErTy1234"));
+  const item = isReel ? { ...vid("reel"), user: { username: "markavio" } }
+    : { carousel_media: [img("a"), vid("b"), img("c")], user: { username: "markavio" } };
+  return { ok: true, status: 200, json: async () => ({ items: [item] }) };
+};
+</script>
+<script src="../../src/content/constants.js"></script>
+<script src="../../src/content/instagram-api.js"></script>
+<script src="../../src/content/ui.js"></script>
+<script src="../../src/content/resolver.js"></script>
+<script src="../../src/content/inject.js"></script>
+</body></html>

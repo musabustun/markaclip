@@ -1,0 +1,101 @@
+/* MarkaClip — injected into instagram.com. Buttons inherit Instagram's icon
+   colour (light/dark themes) so they read as native; brand lime is reserved
+   for feedback states and the toast. */
+
+.mc-btn {
+  all: unset;
+  box-sizing: border-box;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px;
+  color: inherit;
+  cursor: pointer;
+  border-radius: 50%;
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity 0.15s ease, transform 0.1s ease;
+}
+.mc-btn:hover { opacity: 0.55; }
+.mc-btn:active { transform: scale(0.88); }
+.mc-btn:focus-visible { outline: 2px solid #d7ff00; outline-offset: 2px; }
+.mc-btn svg { display: block; width: 24px; height: 24px; flex: none; pointer-events: none; }
+
+.mc-btn[data-state="loading"] { cursor: progress; opacity: 1; }
+.mc-btn[data-state="loading"] svg { animation: mc-spin 0.8s linear infinite; }
+.mc-btn[data-state="error"] { animation: mc-shake 0.32s ease; }
+
+/* Lime "done" badge, echoing the lime strand of the Markavio mark. */
+.mc-btn[data-state="done"]::after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  right: 5px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #d7ff00;
+  box-shadow: 0 0 0 1.5px #000;
+}
+
+/* Reels column: centre the icon in the copied Save slot. */
+.mc-slot--reel { display: flex !important; align-items: center; justify-content: center; }
+
+/* Feed/post row and story header: sit inline next to the native control. */
+.mc-host-row { display: flex !important; align-items: center; }
+
+.mc-btn--story { color: #fff; padding: 4px 6px; filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4)); }
+.mc-btn--story svg { width: 22px; height: 22px; }
+
+/* Fallback when the story header could not be located. */
+.mc-btn--floating {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 2147483000;
+  padding: 10px 18px 10px 14px;
+  border-radius: 999px;
+  background: #000;
+  color: #fff;
+  border: 1px solid rgba(215, 255, 0, 0.45);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  font: 600 14px/1 Degular, "Inter Tight", Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+.mc-btn--floating svg { width: 20px; height: 20px; color: #d7ff00; }
+.mc-btn--floating:hover { opacity: 1; border-color: #d7ff00; }
+
+.mc-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  z-index: 2147483001;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: min(440px, calc(100vw - 32px));
+  padding: 12px 18px 12px 14px;
+  border-radius: 14px;
+  background: #000;
+  color: #f3f3f3;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  font: 400 14px/1.35 Degular, "Inter Tight", Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 12px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.mc-toast--visible { opacity: 1; transform: translate(-50%, 0); }
+.mc-toast__dot { flex: none; width: 8px; height: 8px; border-radius: 50%; background: #d7ff00; }
+.mc-toast[data-kind="error"] .mc-toast__dot { background: #ff5c5c; }
+.mc-toast__brand { flex: none; font-weight: 600; color: #fff; }
+
+@keyframes mc-spin { to { transform: rotate(360deg); } }
+@keyframes mc-shake {
+  25% { transform: translateX(-3px); }
+  75% { transform: translateX(3px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mc-btn, .mc-toast { transition: none; }
+  .mc-btn[data-state="error"] { animation: none; }
+}

@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "MarkaClip",
+  "short_name": "MarkaClip",
+  "version": "1.0.0",
+  "description": "Instagram Reels, gönderi ve hikâyeleri tek tıkla indir. Markavio tarafından.",
+  "author": "Markavio",
+  "icons": {
+    "16": "assets/icons/icon-16.png",
+    "32": "assets/icons/icon-32.png",
+    "48": "assets/icons/icon-48.png",
+    "128": "assets/icons/icon-128.png"
+  },
+  "action": {
+    "default_title": "MarkaClip",
+    "default_popup": "src/popup/popup.html",
+    "default_icon": {
+      "16": "assets/icons/icon-16.png",
+      "32": "assets/icons/icon-32.png",
+      "48": "assets/icons/icon-48.png"
+    }
+  },
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "permissions": ["downloads", "storage"],
+  "host_permissions": ["https://www.instagram.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://www.instagram.com/*"],
+      "js": [
+        "src/content/constants.js",
+        "src/content/instagram-api.js",
+        "src/content/ui.js",
+        "src/content/resolver.js",
+        "src/content/inject.js"
+      ],
+      "css": ["src/content/content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

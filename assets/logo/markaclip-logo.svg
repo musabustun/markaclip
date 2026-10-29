@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 128" fill="none">
+  <title>MarkaClip</title>
+  <rect width="128" height="128" rx="30" fill="#000"/>
+  <path d="M64 22v56" stroke="#fff" stroke-width="12" stroke-linecap="round"/>
+  <path d="M65 83C73 75 82 64 95 54" stroke="#D7FF00" stroke-width="12" stroke-linecap="round"/>
+  <path d="M26 57C30 49 39 46 45 50L69 80A6.5 6.5 0 0 1 59 88L38 61C35 58 31 57 26 57Z" fill="#fff"/>
+  <path d="M28 96v2a8 8 0 0 0 8 8h56a8 8 0 0 0 8-8v-2" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Wordmark mirrors "markavio": light "marka" + medium suffix -->
+  <text x="152" y="88" font-family="Degular, 'Inter Tight', Inter, 'Helvetica Neue', Arial, sans-serif" font-size="68" letter-spacing="-1" fill="#000">
+    <tspan font-weight="300">marka</tspan><tspan font-weight="600">clip</tspan>
+  </text>
+</svg>

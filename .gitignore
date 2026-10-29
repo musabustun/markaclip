@@ -1,0 +1,10 @@
+# Build output — published as GitHub release assets instead
+dist/
+
+# Internal brand guide — not for a public repo
+markavio.pdf
+
+# Local tooling
+.claude/
+.DS_Store
+node_modules/
